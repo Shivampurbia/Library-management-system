@@ -1,0 +1,136 @@
+.edit-btn{
+  border: 2px solid #2975CC;
+  margin-right: 1rem;
+  padding-top: .2rem;
+  color: #2975CC;
+  padding-bottom: 0.4rem;
+  padding-left: .4rem;
+  padding-right: .4rem;
+  border-radius: 5px;
+
+}
+.edit-btn:hover{
+  background-color: rgba(89, 94, 138, 0.219);
+}
+.cancle{
+  background: #76787A;
+  border-radius: 4px;  
+  border:none;
+  color: white;
+  margin-right: 12px;
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-top: 7px;
+  padding-bottom: 8px;
+}
+.headerr{
+  width:auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color:  #EBEDF0;
+  color: #2975CC;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  
+}
+.add-btn{
+  color: rgb(248, 246, 246);
+  background-color: #007bff;
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-top: 7px;
+  padding-bottom: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
+.add-btn:hover{
+  background-color: #007bffcb;   
+  
+}
+.action-msg{
+  background-color:#E47361;
+  color:white;
+  padding: 9px 46px 8px;
+  border-radius: 4px;
+}
+
+.delete-section{
+  
+  height: 100vh;
+  width: 50%;
+  display:none;
+  background: #FFFFFF;
+  box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.288);
+  width: 500px;
+  height: 250px;
+  position: fixed;
+  left: calc((50vw - 50%) * -1);
+  top: calc((50vh - 50%) * -1);
+  transform: translate(calc(50vw - 50%), calc(50vh - 50%));
+  
+}
+
+.warn-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  color: #363738;
+}
+.cardheader{
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0,0,0,.03);
+  border-bottom: 1px solid rgba(0,0,0,.125);
+  
+}
+.bttn{
+  padding: 3rem;
+  background-color: #0044ff;
+  border: none;
+  border-radius: 1rem;
+  color: white;
+  font-size: large;
+  cursor: pointer;
+}
+.bttn:hover{
+  background-color:  #0044ff9d;
+}
+
+.formgrid{
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  width: 100%;
+
+}
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+.cardbody{
+  padding:1.5rem
+}
+.formgroup{
+  margin-bottom: 1rem;
+  
+}
+label,input{
+display:flex;
+flex-direction:column;
+}

@@ -5,43 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Edit Book</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <style>
-        .cancle{
-            background: #76787A;
-            border-radius: 4px;  
-            border:none;
-            color: white;
-            margin-right: 12px;
-            padding-top: 7px;
-        }
-        .formgrid{
-            display: inline-grid;
-            grid-template-columns: auto auto;
-            width: 100%;
-  
-        }
-        .center{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin-top: 2rem;
-        }
-        .cardbody{
-            padding:1.5rem
-        }
-        .formgroup{
-            margin-bottom: 1rem;
-        }
-        label,input{
-  display:flex;
-  flex-direction:column;
-        }
-       
-        
-
-
-    </style>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="/javascripts/edit-section-animation.js" defer></script>
 </head>
 <body class="container" style="margin-top: 70px;width: 580px;background-image: url(https://image.freepik.com/free-vector/white-blurred-background_1034-249.jpg);background-size:cover;">
 
@@ -91,26 +56,6 @@
                     
         </div>
     </div>
-    <script>
-        let confirmAdd = document.querySelector('#confirmEdit');
-        confirmAdd.addEventListener("click",(e)=>{
-            
-             
-            confirmAdd.parentElement.style.display ="none";
-            var animation = document.createElement('img');
-            var msg = document.createElement('p');
-            confirmAdd.parentElement.parentElement.classList.add('center');
-            msg.style.fontSize="16px";
-            msg.style.color= "#363738";
-            msg.style.fontFamily="Roboto";
-            
-            msg.innerHTML='Updating book';
-            animation.src= "https://www.tru-flex.com/assets/img/loader.gif";
-            animation.setAttribute("style","width:50px;height:50px");
-            confirmAdd.parentElement.parentElement.appendChild(animation);
-            confirmAdd.parentElement.parentElement.appendChild(msg);
-           
-        })
-    </script>
+  
 </body>
 </html>
