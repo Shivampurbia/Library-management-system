@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <style>
+        .edit-btn{
+            border: 2px solid #2975CC;
+            margin-right: 1rem;
+            padding-top: .2rem;
+            color: #2975CC;
+            padding-bottom: 0.4rem;
+            padding-left: .4rem;
+            padding-right: .4rem;
+            border-radius: 5px;
+
+        }
+        .edit-btn:hover{
+            background-color: rgba(89, 94, 138, 0.219);
+        }
+        .cancle{
+            background: #76787A;
+            border-radius: 4px;  
+            border:none;
+            color: white;
+            margin-right: 12px;
+            padding-left: 14px;
+            padding-right: 14px;
+            padding-top: 7px;
+            padding-bottom: 8px;
+        }
+        .headerr{
+            width:auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background-color:  #EBEDF0;
+            color: #2975CC;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 26px;
+            
+        }
+        .add-btn{
+            color: rgb(248, 246, 246);
+            background-color: #007bff;
+            padding-left: 14px;
+            padding-right: 14px;
+            padding-top: 7px;
+            padding-bottom: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+        }
+        .add-btn:hover{
+            background-color: #007bffcb;   
+            
+        }
+        .action-msg{
+            background-color:#E47361;
+            color:white;
+            padding: 9px 46px 8px;
+            border-radius: 4px;
+        }
+        
+        .delete-section{
+            
+            height: 100vh;
+            width: 50%;
+            display:none;
+            background: #FFFFFF;
+            box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            border: 2px solid rgba(0, 0, 0, 0.288);
+            width: 500px;
+            height: 250px;
+            position: fixed;
+            left: calc((50vw - 50%) * -1);
+            top: calc((50vh - 50%) * -1);
+            transform: translate(calc(50vw - 50%), calc(50vh - 50%));
+            
+        }
+        .warn-center{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 28px;
+            text-align: center;
+            color: #363738;
+        }
+        .cardheader{
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 0;
+            background-color: rgba(0,0,0,.03);
+            border-bottom: 1px solid rgba(0,0,0,.125);
+            
+        }
+        
+       
+       
+       
+
+      
+    </style>
+
+</head>
+<body class="container" style="margin-top: 50px;width: 100%;">
+    
+        
+        
+        
+        <% if (messages.error) { %>
+        <div class="alert alert-danger" role="alert"><%- messages.error %></div>
+        <% } %>
+
+        <div class="card"> 
+            <div class="headerr">GeekLib</div>
+            <div class="cardheader" >
+                <ul class="nav nav-pills w-100" style="display: flex;justify-content: space-between;">
+                    <li >
+                        <a >Library item list</a>
+                    </li>
+                    <li >
+                        <a id="aaa">
+                            <% if (messages.success) { %>
+                                <div class="action-msg"><%- messages.success %></div>
+                                <% } %>
+                        </a>
+                    </li>
+                    <li >
+                        <a class="nav-link active" href="/books/add">Add Book</a>
+                    </li>
+                </ul>
+            </div>
+        
+    <div class="card-body">
+        
+        <% if(data.length) { %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">S No.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Genere</th>
+                    <th scope="col">Edition</th>
+                    <th width="200px">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% for(var i = 0; i< data.length; i++) { %>
+                <% if (i%2==0) { %>
+                    
+                    <tr style="background-color: #DCE9F8;">
+                        <th scope="row"><%= (i+1) %></th>
+                        <td><%= data[i].name%></td>
+                        <td><%= data[i].author%></td>
+                        <td><%= data[i].genere%></td>
+                        <td><%= data[i].edition%></td>
+                        <td>
+                            <a  href="../books/edit/<%=data[i].id%>"><button class="edit-btn">Edit</button></a>
+                            <a class="btn btn-danger delete" onclick=deletebook("../books/delete/<%=data[i].id%>") style="color: white;">Delete</a>                             
+                        </td>
+                    </tr>
+                 <% } else { %>
+                   <tr>
+                        <th scope="row"><%= (i+1) %></th>
+                        <td><%= data[i].name%></td>
+                        <td><%= data[i].author%></td>
+                        <td><%= data[i].genere%></td>
+                        <td><%= data[i].edition%></td>
+                        <td>
+                            <a  href="../books/edit/<%=data[i].id%>"><button class="edit-btn">Edit</button></a>                       
+                            <a class="btn btn-danger delete" onclick=deletebook("../books/delete/<%=data[i].id%>") style="color: white;">Delete</a> 
+                        </td>
+                    </tr>
+                 <% } %>
+                
+                
+            <% } %>
+            </tbody>
+        </table>
+        <% } %>
+        
+        <!-- if result is empty -->
+        <% if(!data.length) { %>
+            <p class="text-center">No book found!<br><br>
+                <a  href="/books/add">
+                    <button class="add-btn" >Add Book</button>    
+                </a>
+             
+            </p>
+        <% } %>
+
+        </div>
+    </div>
+
+    <div  class="delete-section">
+        <div class="card-header" >
+           
+		    <img style="margin-left: 96%;" onclick=displaynone(); return false;" src="https://img.icons8.com/material-outlined/24/000000/delete-sign.png"/>
+            
+        </div>
+        <hr style="background-color: rgba(31, 29, 29, 0.171);width: 100%;margin-top: -.1rem;"/>
+        <div class="warn-center">
+            <img src="https://img.icons8.com/emoji/48/000000/warning-emoji.png"/>
+        </div>
+        <div class="warn-center">
+            <p>Are you sure you want to delete the Book?</p>
+        </div>
+        <div class="warn-center" style="margin-top: .5rem;">
+            <div id="deletionlogo">
+                <input
+                        class="cancle"
+                        action="action"
+                        onclick=displaynone()
+                        type="submit"
+                        value="Cancle"
+                />
+                <a >
+                <button id="confirmDelete" class="add-btn" >Yes</button>    
+                </a>
+            </div>
+        </div>
+        
+    </div>
+    
+
+    
+    <script defer>
+        
+        function deletebook(j){
+            console.log('still runnnig');
+            document.querySelector('.delete-section').setAttribute("style","display:block");
+            document.querySelector('.card').setAttribute("style","filter: blur(4px) brightness(0.90);")
+            //document.querySelector('html').setAttribute("style","filter: blur(4px) brightness(0.5);")
+           
+           
+            var del = document.querySelector('#confirmDelete');
+            del.parentElement.href = j;    
+       }
+        function displaynone(){
+            document.querySelector('.card').setAttribute("style","filter: blur(0px);")
+            document.querySelector('.delete-section').setAttribute("style","display:none");   
+        }
+        const timeout = document.querySelector('#aaa')
+        timeout.addEventListener('onload',(e)=>{
+            e.preventDefault();
+        })
+        setTimeout(hideElement, 3000) //milliseconds until timeout//
+        function hideElement() {
+            timeout.style.display = 'none';
+        }
+
+        var msg = document.querySelector(".action-msg");
+        if(msg.innerHTML.includes('deleted!')){
+            msg.setAttribute("style","background-color:  #dc3545;")
+        }
+        if(msg.innerHTML ==="Book added"){
+            msg.setAttribute("style","background-color: #87C98D")
+        }
+
+        document.querySelector("#confirmDelete").addEventListener("click",(e)=>{
+            
+            let yesnobutton = document.querySelector("#deletionlogo")
+            yesnobutton.setAttribute("style","display:none");
+            var animation = document.createElement('img');
+            var msg = document.createElement('p');
+            msg.classList.add('warn-center');
+            msg.style.fontSize="16px";
+            msg.style.color= "#363738";
+            msg.style.fontFamily="Roboto";
+            
+            msg.innerHTML='deleting book';
+            animation.src="https://www.cama.co.in/images/spinloader.gif";
+            animation.setAttribute("style","width:50px;height:50px");
+            yesnobutton.parentElement.appendChild(animation);
+            yesnobutton.parentElement.parentElement.appendChild(msg);
+        })
+        
+    </script>
+  
+</body>
+</html>
