@@ -1,3 +1,5 @@
+//spinning Animated gif when clicked on "ADD book" button
+//works only when all input elements are not empty
 let confirmAdd = document.querySelector('#confirmAdd');
         let inputs = document.querySelectorAll('.form-control');
         let nonEmpty = 0;

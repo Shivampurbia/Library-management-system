@@ -1,3 +1,6 @@
+//spinning Animated gif when clicked on "Edit book" button
+//works only when all input elements are not empty
+
 let confirmAdd = document.querySelector('#confirmEdit');
         confirmAdd.addEventListener("click",(e)=>{
             

@@ -1,3 +1,5 @@
+//server handling all the CRUD operation.
+
 const { name } = require('ejs');
 var express = require('express');
 var router = express.Router();

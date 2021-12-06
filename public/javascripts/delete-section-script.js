@@ -1,17 +1,26 @@
+//whenevr delete is click this will blur the background and will
+//show a pop up to delete the book
+
 function deletebook(j){
     console.log('still runnnig');
     document.querySelector('.delete-section').setAttribute("style","display:block");
     document.querySelector('.card').setAttribute("style","filter: blur(4px) brightness(0.90);")
-    //document.querySelector('html').setAttribute("style","filter: blur(4px) brightness(0.5);")
-   
+    
    
     var del = document.querySelector('#confirmDelete');
+    //this href will tell the server which file to delete
     del.parentElement.href = j;    
 }
+
+//hiding the delete pop up when not active
 function displaynone(){
     document.querySelector('.card').setAttribute("style","filter: blur(0px);")
     document.querySelector('.delete-section').setAttribute("style","display:none");   
 }
+
+
+//the success message that displays which operation has been performed
+//deleted book,updated book or added book
 const timeout = document.querySelector('#aaa')
 timeout.addEventListener('onload',(e)=>{
     e.preventDefault();
